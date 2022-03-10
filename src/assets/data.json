@@ -1,0 +1,45 @@
+{
+  "books": [
+    {
+      "title": "Infekcja",
+      "author": "Graham Masterton",
+      "publishYear": "2021",
+      "publisher": "Albatros",
+      "language": "pl",
+      "edition": "1",
+      "isbn": "978-83-8125-359-8",
+      "originalTitle": "Plague of the Manitou",
+      "originalPublishYear": "2015",
+      "properties": {
+        "pages": 383,
+        "format": "121x194x2"
+      },
+      "progress": {
+        "state": "Reading",
+        "started": "2022-02-28",
+        "finished": null,
+        "rating": null
+      }
+    }, {
+      "title": "The Hitler Years - Disaster 1940 - 1945",
+      "author": "Frank McDonough",
+      "publishYear": "2020",
+      "publisher": "todo",
+      "language": "en",
+      "edition": "todo",
+      "isbn": "978-83-8125-359-8",
+      "originalTitle": "The Hitler Years - Disaster 1940 - 1945",
+      "originalPublishYear": "2020",
+      "properties": {
+        "pages": 655,
+        "format": "todo"
+      },
+      "progress": {
+        "state": "Finished",
+        "started": "2021-01-10",
+        "finished": "2022-02-15",
+        "rating": 5
+      }
+    }
+  ]
+}

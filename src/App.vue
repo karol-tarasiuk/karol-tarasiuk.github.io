@@ -1,10 +1,28 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <h1 class="title">Książki</h1>
+  <div class="container">
+    <div class="content">
+      <router-view />
+    </div>
   </div>
-  <router-view />
 </template>
+
+<style scoped lang="less">
+.container {
+  display: block;
+}
+
+.content {
+  display: flex;
+}
+
+.title {
+  text-align: center;
+  padding: 1rem 0;
+  margin: 0;
+  border-bottom: 0.1rem solid #5d6d79;
+}
+</style>
 
 <style lang="less">
 body {
@@ -12,26 +30,19 @@ body {
   padding: 0;
   font-family: "Ubuntu Regular";
   src: local("Ubuntu Regular"), url(./fonts/Ubuntu-L.ttf) format("truetype");
-  color: #d8e1e7;
-  background: #36454f;
-}
-
-#app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  color: #d8e1e7;
+  background: #272822;
+  cursor: default;
 }
 
-#nav {
-  padding: 30px;
+a {
+  color: #d8e1e7;
+  text-decoration: none;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  &:hover {
+    font-weight: 700;
   }
 }
 </style>

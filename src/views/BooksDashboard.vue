@@ -1,29 +1,29 @@
 <template>
   <div class="dashboard">
     <div class="stats">
-      <all-books-stats />
+      <books-stats :books="books" />
     </div>
     <div class="collection">
-      <all-books-collection :books="books" />
+      <books-collection :books="books" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { books } from "@/assets/data.json";
-import AllBooksCollection from '@/components/allBooks/AllBooksCollection.vue';
-import AllBooksStats from '@/components/allBooks/AllBooksStats.vue';
+import BooksCollection from '@/components/books/BooksCollection.vue';
+import BooksStats from '@/components/books/BooksStats.vue';
 import { Options, Vue } from 'vue-class-component';
 import _ from "underscore";
 import { Book } from "@/domain/Book";
 
 @Options({
   components: {
-    AllBooksCollection,
-    AllBooksStats
+    BooksCollection,
+    BooksStats
   },
 })
-export default class AllBooksDashboard extends Vue {
+export default class BooksDashboard extends Vue {
   books: Book[] = books;
 }
 </script>

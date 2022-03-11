@@ -1,6 +1,6 @@
 <template>
   <div v-for="group in bookGroups" :key="group">
-    <p>{{ group.year || 'In progress' }}</p>
+    <h4>{{ group.year || 'In progress' }}</h4>
     <ol>
       <li v-for="book in group.books" :key="book.title">
         <span class="pink">[</span>
@@ -33,7 +33,7 @@ import _ from "underscore";
     books: Array,
   },
 })
-export default class AllBooksCollection extends Vue {
+export default class BooksCollection extends Vue {
   bookGroups: IBookGroup[] = [];
 
   books!: Book[];
@@ -44,10 +44,11 @@ export default class AllBooksCollection extends Vue {
       .map((g) => { 
         return {
           year: g[0].progress.finished ? `${new Date(g[0].progress.finished).getFullYear()}` : null, 
-          books: _.sortBy(g, (b) => b.progress.finished)
+          books: _.sortBy(g, (b) => b.progress.finished).reverse()
           }
         })
       .sortBy(g => g.year)
+      .reverse()
       .value();
   }
 }
@@ -60,22 +61,16 @@ interface IBookGroup {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-div > p {
+div > h4 {
   font-family: "Ubuntu Mono";
-  src: local("Ubuntu Mono"),
-    url(../../fonts/UbuntuMono-R.ttf) format("truetype");
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   font-weight: 700;
   color: #66d9ef;
+  margin: 1rem 0;
+  padding: 0;
 }
 
 ol {
   font-family: "Ubuntu Mono";
-  src: local("Ubuntu Mono"),
-    url(../../fonts/UbuntuMono-R.ttf) format("truetype");
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   font-size: 0.83rem;
 }
 

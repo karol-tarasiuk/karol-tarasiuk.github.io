@@ -1,11 +1,11 @@
 <template>
-  <div class="year-stats">
-    <h4>Per year</h4>
+  <div class="genre-stats">
+    <h4>Genres</h4>
     <table>
-      <tr v-for="yearGroup in stats" :key="yearGroup">
-        <td>{{ yearGroup.year }}</td>
-        <td class="count">{{ yearGroup.count }}</td>
-        <td class="pages">({{ yearGroup.pages }})</td>
+      <tr v-for="genreGroup in stats" :key="genreGroup">
+        <td>{{ genreGroup.genre }}</td>
+        <td class="count">{{ genreGroup.count }}</td>
+        <td class="pages">({{ genreGroup.pages }})</td>
       </tr>
     </table>
   </div>
@@ -21,40 +21,34 @@ import _ from "underscore";
     books: Array,
   },
 })
-export default class YearStats extends Vue {
-  stats: IYearBook[] = [];
+export default class GenreStats extends Vue {
+  stats: IGenreBook[] = [];
   books: Book[] = [];
 
   mounted?(): void {
     this.stats = _.chain(this.books)
-      .groupBy((y) =>
-        y.progress.finished ? new Date(y.progress.finished).getFullYear() : 0
-      )
+      .groupBy((y) => y.properties.genre)
       .map((g) => {
         return {
-          year: g[0].progress.finished
-            ? new Date(g[0].progress.finished).getFullYear()
-            : null,
+          genre: g[0].properties.genre,
           count: g.length,
           pages: _.chain(g).map(b => b.properties.pages).reduce((prev, current) => prev + current, 0).value()
         };
       })
-      .filter((g) => g.year)
-      .sortBy((g) => g.year)
-      .reverse()
+      .sortBy((g) => g.genre)
       .value();
   }
 }
 
-interface IYearBook {
-  year: number | null;
+interface IGenreBook {
+  genre: string;
   count: number;
   pages: number;
 }
 </script>
 
 <style scoped lang="less">
-.year-stats {
+.genre-stats {
   font-family: "Ubuntu Mono";
 }
 
@@ -80,7 +74,7 @@ table {
   width: 100%;
   padding: 1rem;
   font-size: 0.85rem;
-
+  
   td {
     padding-top: 0.25rem;
     border-bottom: 1px dashed #5d6d79;

@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import AllBooksDashboard from '../views/AllBooksDashboard.vue'
+import BooksDashboard from '../views/BooksDashboard.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/all',
     name: 'AllBooksDashboard',
-    component: AllBooksDashboard
+    component: BooksDashboard
   }
 ]
 

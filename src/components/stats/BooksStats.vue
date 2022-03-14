@@ -8,8 +8,8 @@
 <script lang="ts">
 import { Book } from "@/domain/Book";
 import { Options, Vue } from "vue-class-component";
-import GenreStats from "../stats/GenreStats.vue";
-import YearStats from "../stats/YearStats.vue";
+import GenreStats from "./GenreStats.vue";
+import YearStats from "./YearStats.vue";
 
 @Options({
   components: {

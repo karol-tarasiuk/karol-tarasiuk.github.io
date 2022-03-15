@@ -2624,7 +2624,7 @@
       "language": "pl",
       "properties": {
         "pages": 352,
-        "genre": "Fiction"
+        "genre": "Fantasy"
       },
       "progress": {
         "state": "Finished",
@@ -2687,6 +2687,34 @@
         "started": "2021-05-16",
         "finished": "2021-05-31",
         "rating": 5
+      }
+    }, {
+      "title": "Mroczne Sekrety",
+      "author": "Marcel Moss",
+      "language": "pl",
+      "properties": {
+        "pages": 335,
+        "genre": "Thriller"
+      },
+      "progress": {
+        "state": "Finished",
+        "started": "2022-02-15",
+        "finished": "2022-02-22",
+        "rating": 2
+      }
+    }, {
+      "title": "Pokaż mi",
+      "author": "Marcel Moss",
+      "language": "pl",
+      "properties": {
+        "pages": 381,
+        "genre": "Thriller"
+      },
+      "progress": {
+        "state": "Finished",
+        "started": "2022-02-22",
+        "finished": "2022-02-27",
+        "rating": 2
       }
     }
   ]

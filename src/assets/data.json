@@ -1,6 +1,21 @@
 {
   "books": [
     {
+      "title": "Oddział chorych na raka",
+      "author": "Aleksandr Sołżenicyn",
+      "language": "pl",
+      "properties": {
+        "pages": 456,
+        "genre": "Novel"
+      },
+      "progress": {
+        "state": "Reading",
+        "started": "2022-03-20",
+        "finished": null,
+        "rating": 3
+      }
+    },
+    {
       "title": "Infekcja",
       "author": "Graham Masterton",
       "language": "pl",
@@ -11,8 +26,8 @@
       "progress": {
         "state": "Reading",
         "started": "2022-02-28",
-        "finished": null,
-        "rating": null
+        "finished": "2022-03-19",
+        "rating": 3
       }
     }, {
       "title": "The Hitler Years - Disaster 1940 - 1945",

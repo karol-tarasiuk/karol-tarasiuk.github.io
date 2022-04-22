@@ -1,6 +1,21 @@
 {
   "books": [
     {
+      "title": "Krew, pot i piksele. Chwalebne i niepokojące opowieści o tym, jak robi się gry",
+      "author": "Jason Schreier",
+      "language": "pl",
+      "properties": {
+        "pages": 368,
+        "genre": "Nonfiction"
+      },
+      "progress": {
+        "state": "Reading",
+        "started": "2022-04-21",
+        "finished": "",
+        "rating": 4
+      }
+    },
+    {
       "title": "Oddział chorych na raka",
       "author": "Aleksandr Sołżenicyn",
       "language": "pl",
@@ -9,10 +24,10 @@
         "genre": "Novel"
       },
       "progress": {
-        "state": "Reading",
+        "state": "Finished",
         "started": "2022-03-20",
-        "finished": null,
-        "rating": 3
+        "finished": "2022-04-20",
+        "rating": 4
       }
     },
     {

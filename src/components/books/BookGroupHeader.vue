@@ -34,7 +34,7 @@ export default class BookGroupHeader extends Vue {
 
   expandGroup(isExpanded: boolean): void {
     this.isExpanded = isExpanded;
-    this.$emit("expanded", isExpanded);
+    this.$emit('expanded', isExpanded);
   }
 }
 </script>

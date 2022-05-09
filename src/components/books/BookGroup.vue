@@ -4,7 +4,7 @@
     <ol v-show="isExpanded">
       <li v-for="book in group.books" :key="book.title">
         <span class="pink">[</span>
-        <span v-if="book.progress.state == 'Finished'" class="finished">{{
+        <span v-if="book.progress.finished" class="finished">{{
           book.progress.finished
         }}</span>
         <span v-else class="not-finished">----------</span>
@@ -13,7 +13,7 @@
         <span class="title">{{ book.title }}</span>
         -
         <span>{{ book.author }}</span>
-        <span v-if="book.progress.state == 'Finished'" class="rating">
+        <span v-if="book.progress.finished" class="rating">
           <span class="pink">(</span>
           <span v-for="i in book.progress.rating" :key="i">*</span>
           <span class="pink">)</span>

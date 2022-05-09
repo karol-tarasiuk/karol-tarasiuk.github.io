@@ -36,6 +36,7 @@ export default class BooksDashboard extends Vue {
 
 .stats {
   flex: 1;
+  margin-top: 0.3rem;
 }
 
 .collection {

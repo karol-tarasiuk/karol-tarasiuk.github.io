@@ -5,22 +5,36 @@
       <router-view />
     </div>
   </div>
+  <div class="footer"># V: 1.1 by Fka</div>
 </template>
 
 <style scoped lang="less">
 .container {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .content {
+  width: 100%;
   display: flex;
 }
 
 .title {
+  width: 100%;
   text-align: center;
   padding: 1rem 0;
   margin: 0;
   border-bottom: 0.1rem solid #5d6d79;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 0.75rem;
+  font-family: "Ubuntu Mono";
+  color: #4b4b4b;
+  padding: 0 1rem;
 }
 </style>
 

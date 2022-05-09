@@ -12,7 +12,6 @@ export interface BookProperties {
 }
 
 export interface BookProgress {
-  state: string;
   started: string | null;
   finished: string | null;
   rating: number | null;

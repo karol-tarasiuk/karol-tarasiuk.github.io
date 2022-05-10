@@ -1,5 +1,5 @@
 <template>
-  <search-box v-on:searchChanged="searchChanged" />
+  <search-box @searchChanged="searchChanged" :searchText="searchBy" />
   <book-group :group="group" v-for="group in bookGroups" :key="group" />
 </template>
 
@@ -9,6 +9,7 @@ import { Book } from "@/domain/Book";
 import _ from "underscore";
 import BookGroup from "./BookGroup.vue";
 import SearchBox from "./SearchBox.vue";
+import { filterBooks } from "@/services/SearchFilterService";
 
 @Options({
   components: {
@@ -17,15 +18,24 @@ import SearchBox from "./SearchBox.vue";
   },
   props: {
     books: Array,
-  },
+    searchBy: String
+  }
 })
 export default class BooksCollection extends Vue {
   bookGroups: IBookGroup[] = [];
 
   books!: Book[];
+  searchBy!: string;
+
+  searchText: string = "";
 
   mounted?(): void {
     this.regroupBooks(this.books, false);
+
+    this.$watch('searchBy', (newValue: string) => {
+      let filteredBooks = filterBooks(this.books, newValue);
+      this.regroupBooks(filteredBooks, true);
+    });
   }
 
   searchChanged(searchText: string): void {
@@ -34,9 +44,7 @@ export default class BooksCollection extends Vue {
       return;
     }
 
-    const filteredBooks = this.books
-      .filter(b => b.author.includes(searchText) || b.title.includes(searchText));
-
+    const filteredBooks = filterBooks(this.books, searchText);
     this.regroupBooks(filteredBooks, true);
   }
 

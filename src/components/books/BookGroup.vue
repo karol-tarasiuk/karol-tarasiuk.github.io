@@ -1,6 +1,6 @@
 <template>
   <div class="book-group">
-    <book-group-header :group="group" v-on:expanded="expandGroup" />
+    <book-group-header :group="group" @expanded="expandGroup" />
     <ol v-show="isExpanded">
       <li v-for="book in group.books" :key="book.title">
         <span class="pink">[</span>

@@ -24,7 +24,7 @@
   text-align: center;
   padding: 1rem 0;
   margin: 0;
-  border-bottom: 0.1rem solid #5d6d79;
+  border-bottom: 0.1rem solid #777777;
 }
 
 .footer {
@@ -49,6 +49,7 @@ body {
   color: #d8e1e7;
   background: #272822;
   cursor: default;
+  overflow: hidden;
 }
 
 a {

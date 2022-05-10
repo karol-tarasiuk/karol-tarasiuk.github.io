@@ -1,7 +1,7 @@
 <template>
   <div class="search-box">
     <p>Search</p>
-    <input type="text" v-model="searchField" v-on:keyup="searchChanged" />
+    <input type="text" v-model="searchField" @keyup="searchChanged" />
   </div>
 </template>
 
@@ -13,11 +13,19 @@ import _ from "underscore";
   components: {
   },
   props: {
+    searchText: String
   },
   emits: ['searchChanged']
 })
 export default class SearchBox extends Vue {
   searchField: string = "";
+  searchText!: string;
+
+  mounted?(): void {
+    this.$watch('searchText', (newValue: string) => {
+      this.searchField = newValue;
+    });
+  }
 
   searchChanged(): void {
     this.$emit('searchChanged', this.searchField);

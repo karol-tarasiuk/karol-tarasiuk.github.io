@@ -1,6 +1,6 @@
 <template>
-  <span v-if="innerExpanded" v-on:click="collapseGroup">▼</span>
-  <span v-else v-on:click="collapseGroup">▲</span>
+  <span v-if="innerExpanded" @click="collapseGroup">▼</span>
+  <span v-else @click="collapseGroup">▲</span>
 </template>
 
 <script lang="ts">

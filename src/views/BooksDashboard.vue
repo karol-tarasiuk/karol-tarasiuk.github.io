@@ -1,10 +1,10 @@
 <template>
   <div class="dashboard">
     <div class="stats">
-      <books-stats :books="books" />
+      <books-stats :books="books" @genreSelected="genreSelected" />
     </div>
     <div class="collection">
-      <books-collection :books="books" />
+      <books-collection :books="books" :searchBy="searchText" />
     </div>
   </div>
 </template>
@@ -25,6 +25,11 @@ import { Book } from "@/domain/Book";
 })
 export default class BooksDashboard extends Vue {
   books: Book[] = books;
+  searchText: string = "";
+
+  genreSelected(genre: string): void {
+    this.searchText = `genre:${genre}`;
+  }
 }
 </script>
 

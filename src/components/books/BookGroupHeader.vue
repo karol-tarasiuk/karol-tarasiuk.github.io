@@ -1,6 +1,6 @@
 <template>
   <h4>
-    <expand-arrow :isExpanded="group.isExpanded" v-on:expanded="expandGroup" />
+    <expand-arrow :isExpanded="group.isExpanded" @expanded="expandGroup" />
     {{ group.year || "In progress" }}
     <span v-show="!isExpanded" class="group-count">({{ group.books.length }})</span>
   </h4>

@@ -1,7 +1,7 @@
 <template>
   <div class="stats-container">
     <year-stats :books="books" />
-    <genre-stats :books="books" />
+    <genre-stats :books="books" @genreSelected="genreSelected" />
   </div>
 </template>
 
@@ -18,10 +18,15 @@ import YearStats from "./YearStats.vue";
   },
   props: {
     books: Array,
-  }
+  },
+  emits: ['genreSelected']
 })
 export default class BooksStats extends Vue {
   books!: Book[];
+
+  genreSelected(genre: string): void {
+    this.$emit("genreSelected", genre);
+  }
 }
 </script>
 

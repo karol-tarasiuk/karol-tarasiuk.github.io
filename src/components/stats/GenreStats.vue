@@ -3,8 +3,8 @@
     <h4>Genres</h4>
     <table>
       <tr v-for="genreGroup in stats" :key="genreGroup">
-        <td>{{ genreGroup.genre }}</td>
-        <td class="count">{{ genreGroup.count }}</td>
+        <td class="name" @click="genreClicked(genreGroup.genre)">{{ genreGroup.genre }}</td>
+        <td class="count">{{ genreGroup.count }} <span class="percent">({{genreGroup.percent.toFixed(0)}}%)</span></td>
         <td class="pages">({{ genreGroup.pages }})</td>
       </tr>
     </table>
@@ -20,6 +20,7 @@ import _ from "underscore";
   props: {
     books: Array,
   },
+  emits: ['genreSelected']
 })
 export default class GenreStats extends Vue {
   stats: IGenreBook[] = [];
@@ -32,6 +33,7 @@ export default class GenreStats extends Vue {
         return {
           genre: g[0].properties.genre,
           count: g.length,
+          percent: (g.length * 100 / this.books.length),
           pages: _.chain(g).map(b => b.properties.pages).reduce((prev, current) => prev + current, 0).value()
         };
       })
@@ -39,11 +41,16 @@ export default class GenreStats extends Vue {
       .reverse()
       .value();
   }
+
+  genreClicked(genre: string): void {
+    this.$emit('genreSelected', genre);
+  }
 }
 
 interface IGenreBook {
   genre: string;
   count: number;
+  percent: number;
   pages: number;
 }
 </script>
@@ -53,15 +60,28 @@ interface IGenreBook {
   font-family: "Ubuntu Mono";
 }
 
-.count, .pages {
+.pages {
   text-align: right;
   width: 10%;
+}
+
+.count {
+  text-align: right;
+  width: 4rem;
 }
 
 .pages {
   color: #fd971f;
   text-align: left;
   padding-left: 1rem;
+}
+
+.percent {
+  color: #777777;
+}
+
+.name {
+  cursor: pointer;
 }
 
 h4 {
@@ -75,6 +95,15 @@ table {
   width: 100%;
   padding: 1rem;
   font-size: 0.85rem;
+
+  tr {
+    &:hover {
+      td {
+        border-bottom: 1px dashed #cfcfcf;
+      }
+      
+    }
+  }
   
   td {
     padding-top: 0.25rem;

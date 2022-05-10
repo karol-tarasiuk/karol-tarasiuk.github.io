@@ -35,7 +35,8 @@ export default class GenreStats extends Vue {
           pages: _.chain(g).map(b => b.properties.pages).reduce((prev, current) => prev + current, 0).value()
         };
       })
-      .sortBy((g) => g.genre)
+      .sortBy((g) => g.count)
+      .reverse()
       .value();
   }
 }

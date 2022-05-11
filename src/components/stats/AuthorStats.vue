@@ -1,11 +1,11 @@
 <template>
-  <div class="genre-stats">
-    <h4>🏷️ Genres</h4>
+  <div class="author-stats">
+    <h4>👨 Authors</h4>
     <table>
-      <tr v-for="genreGroup in stats" :key="genreGroup">
-        <td class="name" @click="genreClicked(genreGroup.genre)">{{ genreGroup.genre }}</td>
-        <td class="count">{{ genreGroup.count }} <span class="percent">({{genreGroup.percent.toFixed(0)}}%)</span></td>
-        <td class="pages">({{ genreGroup.pages }})</td>
+      <tr v-for="authorGroup in stats" :key="authorGroup">
+        <td class="name" @click="authorClicked(authorGroup.author)">{{ authorGroup.author }}</td>
+        <td class="count">{{ authorGroup.count }}</td>
+        <td class="pages">({{ authorGroup.pages }})</td>
       </tr>
     </table>
   </div>
@@ -20,64 +20,54 @@ import _ from "underscore";
   props: {
     books: Array,
   },
-  emits: ['genreSelected']
+  emits: ['authorSelected']
 })
-export default class GenreStats extends Vue {
-  stats: IGenreGroup[] = [];
+export default class AuthorStats extends Vue {
+  stats: IAuthorGroup[] = [];
   books: Book[] = [];
 
   mounted?(): void {
     this.stats = _.chain(this.books)
-      .groupBy((y) => y.properties.genre)
+      .groupBy((y) => y.author)
       .map((g) => {
         return {
-          genre: g[0].properties.genre,
+          author: g[0].author,
           count: g.length,
-          percent: (g.length * 100 / this.books.length),
           pages: _.chain(g).map(b => b.properties.pages).reduce((prev, current) => prev + current, 0).value()
         };
       })
       .sortBy((g) => g.count)
       .reverse()
+      .take(12)
       .value();
   }
 
-  genreClicked(genre: string): void {
-    this.$emit('genreSelected', genre);
+  authorClicked(author: string): void {
+    this.$emit('authorSelected', author);
   }
 }
 
-interface IGenreGroup {
-  genre: string;
+interface IAuthorGroup {
+  author: string;
   count: number;
-  percent: number;
   pages: number;
 }
 </script>
 
 <style scoped lang="less">
-.genre-stats {
+.author-stats {
   font-family: "Ubuntu Mono";
 }
 
-.pages {
+.count, .pages {
   text-align: right;
   width: 10%;
-}
-
-.count {
-  text-align: right;
-  width: 4rem;
 }
 
 .pages {
   color: #fd971f;
   text-align: left;
   padding-left: 1rem;
-}
-
-.percent {
-  color: #777777;
 }
 
 .name {
@@ -95,7 +85,7 @@ table {
   width: 100%;
   padding: 1rem;
   font-size: 0.85rem;
-  
+
   td {
     padding-top: 0.25rem;
     border-bottom: 1px dashed #5d6d79;

@@ -1,6 +1,6 @@
 <template>
   <div class="year-stats">
-    <h4>Per year</h4>
+    <h4>📆 Years</h4>
     <table>
       <tr v-for="yearGroup in stats" :key="yearGroup">
         <td>{{ yearGroup.year }}</td>
@@ -22,7 +22,7 @@ import _ from "underscore";
   },
 })
 export default class YearStats extends Vue {
-  stats: IYearBook[] = [];
+  stats: IYearGroup[] = [];
   books: Book[] = [];
 
   mounted?(): void {
@@ -46,7 +46,7 @@ export default class YearStats extends Vue {
   }
 }
 
-interface IYearBook {
+interface IYearGroup {
   year: number | null;
   count: number;
   pages: number;

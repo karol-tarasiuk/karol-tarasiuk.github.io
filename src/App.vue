@@ -5,7 +5,7 @@
       <router-view />
     </div>
   </div>
-  <div class="footer"># V: 1.1 by Fka</div>
+  <div class="footer"># V: 1.2 by Fka</div>
 </template>
 
 <style scoped lang="less">

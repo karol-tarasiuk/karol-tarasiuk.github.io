@@ -1,5 +1,5 @@
 <template>
-  <h1 class="title">Książki</h1>
+  <h1 class="title">Shelve</h1>
   <div class="container">
     <div class="content">
       <router-view />
@@ -46,7 +46,7 @@ body {
   src: local("Ubuntu Regular"), url(./fonts/Ubuntu-L.ttf) format("truetype");
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #d8e1e7;
+  color: #dddddd;
   background: #272822;
   cursor: default;
   overflow: hidden;

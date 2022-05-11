@@ -1,6 +1,6 @@
 <template>
-  <span v-if="innerExpanded" @click="collapseGroup">-</span>
-  <span v-else @click="collapseGroup">+</span>
+  <span v-if="innerExpanded" @click="collapseGroup" class="expanded">-</span>
+  <span v-else @click="collapseGroup" class="collapsed">+</span>
 </template>
 
 <script lang="ts">
@@ -29,10 +29,17 @@ export default class ExpandArrow extends Vue {
 <style lang="less" scoped>
 span {
   cursor: pointer;
-  color: #d8e1e7;
 
-  &:hover {
-    color: #66d9ef;
+  &.collapsed:hover, &.expanded:hover {
+    color: #777;
+  }
+
+  &.collapsed {
+    color: #a6e22e;
+  }
+
+  &.expanded {
+    color: #f92672;
   }
 }
 </style>

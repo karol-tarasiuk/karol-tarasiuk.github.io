@@ -86,6 +86,10 @@ table {
   padding: 1rem;
   font-size: 0.85rem;
 
+  tr:hover {
+    color:#ffffff7a;
+  }
+
   td {
     padding-top: 0.25rem;
     border-bottom: 1px dashed #5d6d79;

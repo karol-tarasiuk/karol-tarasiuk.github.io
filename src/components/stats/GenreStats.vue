@@ -95,6 +95,10 @@ table {
   width: 100%;
   padding: 1rem;
   font-size: 0.85rem;
+
+  tr:hover {
+    color:#ffffff7a;
+  }
   
   td {
     padding-top: 0.25rem;

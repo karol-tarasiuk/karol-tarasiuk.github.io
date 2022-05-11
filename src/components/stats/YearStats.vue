@@ -4,7 +4,7 @@
     <table>
       <tr v-for="yearGroup in stats" :key="yearGroup">
         <td>{{ yearGroup.year }}</td>
-        <td class="count">{{ yearGroup.count }}</td>
+        <td class="count" v-bind:class="yearGroup.trend == 0 ? 'rising' : 'falling'">{{ yearGroup.count }}</td>
         <td class="pages">({{ yearGroup.pages }})</td>
       </tr>
     </table>
@@ -36,13 +36,29 @@ export default class YearStats extends Vue {
             ? new Date(g[0].progress.finished).getFullYear()
             : null,
           count: g.length,
-          pages: _.chain(g).map(b => b.properties.pages).reduce((prev, current) => prev + current, 0).value()
+          pages: _.chain(g).map(b => b.properties.pages).reduce((prev, current) => prev + current, 0).value(),
+          trend: Trend.Rising
         };
       })
       .filter((g) => g.year)
       .sortBy((g) => g.year)
       .reverse()
       .value();
+
+    this.stats.forEach((bookGroup, index) => {
+      if(index === this.stats.length - 1) {
+        bookGroup.trend = Trend.Rising;
+      }
+      else {
+        const previosGroup = this.stats[index + 1];
+        if(bookGroup.count > previosGroup.count) {
+          bookGroup.trend = Trend.Rising;
+        }
+        else {
+          bookGroup.trend = Trend.Falling;
+        }
+      }
+    });
   }
 }
 
@@ -50,6 +66,12 @@ interface IYearGroup {
   year: number | null;
   count: number;
   pages: number;
+  trend: Trend;
+}
+
+enum Trend {
+  Rising,
+  Falling
 }
 </script>
 
@@ -67,6 +89,14 @@ interface IYearGroup {
   color: #fd971f;
   text-align: left;
   padding-left: 1rem;
+}
+
+.rising {
+  color: #a6e22e;
+}
+
+.falling {
+  color: #f92672;
 }
 
 h4 {

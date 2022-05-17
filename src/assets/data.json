@@ -1,6 +1,20 @@
 {
   "books": [
     {
+      "title": "Prawdziwa wojna. Wietnam w ogniu",
+      "author": "Jonathan Schell",
+      "language": "pl",
+      "properties": {
+        "pages": 343,
+        "genre": "Nonfiction"
+      },
+      "progress": {
+        "started": "2022-05-11",
+        "finished": "",
+        "rating": 4
+      }
+    },
+    {
       "title": "Niewinny",
       "author": "Harlan Coben",
       "language": "pl",

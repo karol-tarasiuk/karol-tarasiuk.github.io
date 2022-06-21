@@ -1,6 +1,20 @@
 {
   "books": [
     {
+      "title": "Stukostrachy",
+      "author": "Stephen King",
+      "language": "pl",
+      "properties": {
+        "pages": 638,
+        "genre": "Horror"
+      },
+      "progress": {
+        "started": "2022-06-22",
+        "finished": "",
+        "rating": 3
+      }
+    },
+    {
       "title": "Outpost 2",
       "author": "Dmitry Glukhovsky",
       "language": "pl",
@@ -10,8 +24,8 @@
       },
       "progress": {
         "started": "2022-06-06",
-        "finished": "",
-        "rating": 3
+        "finished": "2022-06-21",
+        "rating": 4
       }
     },
     {

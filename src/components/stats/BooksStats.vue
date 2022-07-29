@@ -1,6 +1,6 @@
 <template>
   <div class="stats-container">
-    <year-stats :books="books" />
+    <year-stats :books="books" @yearSelected="yearSelected" />
     <genre-stats :books="books" @genreSelected="genreSelected" />
     <author-stats :books="books" @authorSelected="authorSelected" />
   </div>
@@ -24,7 +24,8 @@ import YearStats from "./YearStats.vue";
   },
   emits: [
     'genreSelected',
-    'authorSelected'
+    'authorSelected',
+    'yearSelected'
   ]
 })
 export default class BooksStats extends Vue {
@@ -36,6 +37,10 @@ export default class BooksStats extends Vue {
 
   authorSelected(author: string): void {
     this.$emit("authorSelected", author);
+  }
+
+  yearSelected(year: string): void {
+    this.$emit("yearSelected", year);
   }
 }
 </script>

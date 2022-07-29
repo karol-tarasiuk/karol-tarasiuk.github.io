@@ -53,7 +53,7 @@ export default class BookGroup extends Vue {
 .book-group {
   & > ol {
     font-family: "Ubuntu Mono";
-    font-size: 0.83rem;
+    font-size: 0.9rem;
   }
 }
 

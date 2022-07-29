@@ -25,6 +25,7 @@ const mapProperty = (type: string, book: Book) => {
     case 'title': return book.title;
     case 'genre': return book.properties.genre;
     case 'author': return book.author;
+    case 'year': return book.progress.finished ?? '';
     default: return '';
   }
 };

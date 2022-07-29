@@ -3,7 +3,7 @@
     <h4>📆 Years</h4>
     <table>
       <tr v-for="yearGroup in stats" :key="yearGroup">
-        <td>{{ yearGroup.year }}</td>
+        <td class="year" @click="yearClicked(yearGroup.year)">{{ yearGroup.year }}</td>
         <td class="count" v-bind:class="yearGroup.trend == 0 ? 'rising' : 'falling'">{{ yearGroup.count }}</td>
         <td class="pages">({{ yearGroup.pages }})</td>
       </tr>
@@ -60,6 +60,10 @@ export default class YearStats extends Vue {
       }
     });
   }
+
+  yearClicked(year: string): void {
+    this.$emit('yearSelected', year);
+  }
 }
 
 interface IYearGroup {
@@ -78,6 +82,10 @@ enum Trend {
 <style scoped lang="less">
 .year-stats {
   font-family: "Ubuntu Mono";
+}
+
+.year {
+  cursor: pointer;
 }
 
 .count, .pages {

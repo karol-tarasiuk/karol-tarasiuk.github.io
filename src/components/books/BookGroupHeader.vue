@@ -41,7 +41,7 @@ export default class BookGroupHeader extends Vue {
 
 <style scoped lang="less">
 h4 {
-  font-family: "Ubuntu Mono";
+  font-family: "Ubuntu Regular";
   font-weight: 700;
   margin: 1rem 0;
   padding: 0;

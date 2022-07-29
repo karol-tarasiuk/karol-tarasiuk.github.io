@@ -39,11 +39,20 @@
 </style>
 
 <style lang="less">
+@font-face {
+  font-family: "Ubuntu Regular";
+  src: local("Ubuntu Regular"), url(./fonts/Ubuntu-L.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu Mono";
+  src: local("Ubuntu Mono"), url(./fonts/UbuntuMono-R.ttf) format("truetype");
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: "Ubuntu Regular";
-  src: local("Ubuntu Regular"), url(./fonts/Ubuntu-L.ttf) format("truetype");
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #dddddd;

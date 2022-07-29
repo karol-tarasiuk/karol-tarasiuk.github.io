@@ -43,7 +43,6 @@ export default class BooksDashboard extends Vue {
 
 <style scoped lang="less">
 .dashboard {
-  width: 100%;
   display: flex;
 }
 

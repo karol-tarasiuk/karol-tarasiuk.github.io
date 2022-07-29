@@ -1,9 +1,7 @@
 <template>
   <h1 class="title">Shelve</h1>
   <div class="container">
-    <div class="content">
-      <router-view />
-    </div>
+    <router-view />
   </div>
   <div class="footer"># V: 1.3.0 by Fka 2022</div>
 </template>
@@ -12,11 +10,6 @@
 .container {
   display: flex;
   flex-direction: column;
-}
-
-.content {
-  width: 100%;
-  display: flex;
 }
 
 .title {
@@ -28,7 +21,8 @@
 }
 
 .footer {
-  position: absolute;
+  position: -webkit-sticky;
+  position: sticky;
   bottom: 0;
   left: 0;
   font-size: 0.75rem;
@@ -58,7 +52,8 @@ body {
   color: #dddddd;
   background: #272822;
   cursor: default;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 a {
